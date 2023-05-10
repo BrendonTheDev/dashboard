@@ -1,4 +1,350 @@
-.container {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --gray-1: #fafaf9;
+    --gray-2: #e7e5e4;
+    --gray-3: #292524;
+    --gray-4: #1c1917;
+    --gray-m: #78716c;
+    --primary: #084c61;
+    --accent: #fa3a6d;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --avatar1: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/06fbe298931623.5ee79b6a90221.jpg);
+    --avatar2: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/2e80bb98931623.5ee79b6a8f342.jpg);
+    --avatar3: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/8394f798931623.5ee79b6a909ea.jpg);
+    --avatar4: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/baa20698931623.5ee79b6a8ec2b.jpg);
+
+    --myavatar: url(avatarGirl.jpg);
+  }
+
+  html {
+    box-sizing: border-box;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--gray-4);
+  }
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul {
+    list-style: none;
+  }
+  
+  button,
+  input {
+    color: inherit;
+    font: inherit;
+  }
+  
+  button {
+    border: none;
+    appearance: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
+ 
+ /* they use body instead of container, didnt work for me {} */
+
+  .container {
+    color: var(--gray-3);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'sidebar header'
+      'sidebar content';
+  }
+  
+
+  /* --- --- --- --- --- HEADER --- --- --- --- --- --- */
+
+  .header {
+    background-color: var(--gray-1);
+    grid-area: header;
+    padding: 1.5rem 3rem;
+    box-shadow: ;
+    z-index: 3;
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    margin-bottom: 2.5rem;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .search label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    font-size: 1.8rem;
+  }
+
+  .search > #search {
+    display: inline-block;
+    border: 0;
+    background-color: var(--gray-2);
+    padding: 0.75em 2em;
+    outline-color: var(--primary);
+    border-radius: 99em;
+    margin-left: 1.25rem;
+    width: min(80%, 700px);
+  }
+
+  .header .account {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  .account button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* check here tomorrow to understand how profile  "left-side" of header is working */
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .picture {
+    background: var(--myavatar);
+    border-radius: 50%;
+    margin: 0 1rem 0 2.5rem;
+    height: 50px;
+    width: 50px;
+  }
+
+  
+  .profile .picture {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .profile .greeting {
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+  }
+  
+  .profile .name {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+   .buttons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+   }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+ .btn {
+    background-color: var(--primary);
+    color: var(--gray-1);
+    font-weight: 500;
+    padding: 0.75em 2.3em;
+    border-radius: 99em;
+ }
+
+  /* --- --- --- --- --- SIDEBAR --- --- --- --- --- --- */
+  .sidebar {
+    background-color: var(--primary);
+    color: var(--gray-1);
+    padding: 2rem;
+    grid-area: sidebar;
+  }
+
+  .sidebar-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+  }
+
+  .sidebar-title > [class^='material-icons'] {
+    font-size: 1.4em;
+    margin-right: 0.25em;
+  }
+
+  .nav {
+    display: grid;
+    font-size: 1.2rem;
+    margin-top: 3.25rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .nav-item.current {
+    font-weight: 900;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  
+
+  /* --- --- --- --- --- MAIN CONTENT --- --- --- --- --- --- */
+
+  .content {
+    background-color: var(--gray-2);
+    grid-area: content;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: 
+        'projects announcements'
+         'projects trending';
+    overflow: auto;
+    padding: 2rem;
+    gap: 2rem;
+
+  }
+
+  .content h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+  
+  .projects {
+    grid-area: projects;
+  }
+  
+  .projects .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .projects .card {
+    border-left: 10px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.25em;
+  }
+
+
+  .card {
+    background-color: var(--gray-1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .announcements {
+    grid-area: announcements;
+  }
+
+  .announcement {
+    width: 25ch;
+    padding: 1rem 0;
+  }
+
+  .announcement h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25em;
+  }
+  
+  .announcement p {
+    font-size: 0.8rem;
+    overflow: hidden;;
+  }
+
+
+  .announcement:first-child {
+    padding-top: 0;
+  }
+  
+  .announcement:last-child {
+    padding-bottom: 0;
+  }
+
+
+
+  .announcement + .announcement {
+    border-top: var(--gray-2) 1px solid;
+  }
+
+
+  .trending {
+    grid-area: trending;
+  }
+
+  .trending .card {
+    padding: 1.5rem;
+  }
+
+
+  .trend {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 1rem;
+    margin-left: -2.5rem;
+  }
+
+  .trend + .trend {
+    margin-top: 1.5rem;
+  }
+
+  .trend .username {
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+
+  .trend .account {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .trend .picture {
+    background-color: var(--accent);
+    border-radius: 50%;
+    
+  }
